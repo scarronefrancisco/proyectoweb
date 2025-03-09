@@ -40,9 +40,10 @@ html {
 
 .services {
     display: flex;
-    width: 400%;
     transition: transform 0.5s ease-in-out;
+    width: calc(100% * 4); /* Se adapta dinámicamente al número de diapositivas */
 }
+
 
 /* Asegura que las imágenes no se desborden */
 img {
@@ -642,12 +643,12 @@ img {
 .services {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 400%; /* Mantiene todas las diapositivas en línea */
+    width: 100%; /* Mantiene todas las diapositivas en línea */
     margin-left: -5vw; /* Ajuste para centrar las diapositivas */
 }
 
 .service-slide {
-    flex: 0 0 100vw; /* Cada diapositiva ocupa el ancho completo */
+    flex: 0 0 100%; /* Cada diapositiva ocupa el ancho completo */
     text-align: center;
     padding: 10px 0;
     box-sizing: border-box;
@@ -720,13 +721,20 @@ img {
         function showSlide(index) {
             const slides = document.querySelectorAll('.service-slide');
             const totalSlides = slides.length;
+
             if (index >= totalSlides) currentSlide = 0;
             else if (index < 0) currentSlide = totalSlides - 1;
             else currentSlide = index;
 
-            const slideWidth = document.querySelector('.services-container').offsetWidth;
-            document.querySelector('.services').style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            // Detecta si es una pantalla pequeña (celular)
+            const isMobile = window.matchMedia("(max-width: 768px)").matches;
+            
+            // Aplica 100% en móviles y 25% en pantallas grandes
+            const slideSize = isMobile ? 100 : 25; 
+
+            document.querySelector('.services').style.transform = `translateX(calc(-${currentSlide} * ${slideSize}%))`;
         }
+
 
 
 
@@ -768,7 +776,7 @@ img {
                 <div class="service-slide">
                     <img src="https://clinicamaip.com/wp-content/uploads/2022/05/beneficios-limpieza-dental-1021x640.jpg" alt="Limpieza Dental">
                     <div class="service-title">Limpieza Dental</div>
-                    <p class="service-desc">Nuestra limpieza dental profesional elimina el sarro y la placa acumulada, previniendo problemas dentales y manteniendo tus encías sanas. ¡Sonríe con confianza!😁✨ </p>
+                    <p class="service-desc">Nuestra limpieza dental profesional elimina el sarro y la placa acumulada, previniendo problemas dentales y manteniendo tus encías sanas. ¡Sonríe con confianza! 😁✨ </p>
                 </div>
                 <div class="service-slide">
                     <img src="https://i0.wp.com/dentalhuburuguay.com/wp-content/uploads/2022/08/chica-sonriendo-dientes-amarillos-dientes-blancos.jpg?fit=1024%2C683&ssl=1" alt="Blanqueamiento Dental">
