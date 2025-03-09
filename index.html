@@ -74,18 +74,27 @@ img {
             font-size: 50px;
             font-weight: 300;
             letter-spacing: 16px;
-            animation: fadeInZoom 1.5s ease-in-out;
+            animation: fancyFadeIn 1.5s ease-out;
             text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
         }
-        @keyframes fadeInZoom {
-            0% { opacity: 0; transform: scale(0.8);
-                letter-spacing: 56px;
-
+        @keyframes fancyFadeIn {
+            0% { 
+                opacity: 0; 
+                transform: translateY(-50px) scale(0.8);
+                filter: blur(10px);
             }
-            100% { opacity: 1; transform: scale(1); 
-                letter-spacing: 16px;
+            50% {
+                opacity: 0.5;
+                filter: blur(5px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+                filter: blur(0);
             }
         }
+
+
     
         .nav-container {
             display: flex;
@@ -431,20 +440,297 @@ img {
 }
 
     
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    /* Estilos para tablets */
+    
+@media (max-width: 1024px) {
+    /* Ajuste del título principal */
+    .titulo-principal {
+        font-size: 50px;
+        font-weight: 300;
+        letter-spacing: 10px;
+        animation: fancyFadeIn 1.5s ease-out;
+        text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+    }
+
+
+    /* Menú de navegación */
+    
+
+    .nav-container a {
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 16px;
+    }
+
+    /* Sección "Sobre Nosotros" */
+    .about-container {
+        flex-direction: column-reverse; /* Imagen debajo del texto */
+        text-align: center;
+    }
+
+    .about-container img {
+        width: 50%; /* Imagen más pequeña */
+        max-width: 250px; /* Máximo tamaño */
+    }
+
+    .about-text {
+        width: 90%;
+        text-align: justify;
+    }
+
+    /* Carrusel de Servicios corregido */
+    .services-container {
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px; /* Tamaño máximo para evitar desbordes */
+        margin: auto;
+        position: relative;
+    }
+
+    .services {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .service-slide {
+        flex: 0 0 100%; /* Cada diapositiva ocupa todo el ancho */
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-slide img {
+        width: 80%;
+        max-width: 250px; /* Tamaño adecuado */
+        border-radius: 10px;
+    }
+
+    .service-title {
+        font-size: 22px; /* Tamaño más ajustado */
+        margin-top: 10px;
+    }
+
+    .service-desc {
+        font-size: 16px; /* Texto más pequeño */
+        max-width: 80%;
+    }
+
+    /* Controles del carrusel */
+    .slider-nav {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .slider-nav button {
+        height: 40px;
+        width: 40px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 20px;
+        transition: transform 0.2s;
+    }
+
+    .slider-nav button:hover {
+        transform: scale(1.1);
+    }
+
+    /* Sección Contacto */
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .map-container {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    /* Footer en 3 columnas */
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-self: center;
+        width: 120px;
+    }
+
+    .footer-text {
+        justify-self: center;
+        text-align: center;
+    }
+
+    .footer-text p {
+        margin-right: 0;
+    }
+}
+
+/* Estilos para celulares */
+@media (max-width: 768px) {
+    /* Ajuste del título principal */
+    .titulo-principal {
+        font-size: 32px;
+        letter-spacing: 5px;
+        text-align: center;
+    }
+
+    /* Menú de navegación optimizado */
+    .nav-container {
+        flex-direction: row;
+        padding: 5px 0;
+    }
+
+    .nav-container a {
+        padding: 8px;
+        font-size: 14px;
+        margin: 2px 0;
+    }
+
+    /* Sección "Sobre Nosotros" */
+    .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about-container img {
+        width: 70%;
+        max-width: 200px;
+    }
+
+    .about-text {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+    /* Carrusel de Servicios corregido en móviles */
+    /* Carrusel de Servicios totalmente corregido en móviles */
+/* Carrusel de Servicios corregido y centrado en móviles */
+/* Carrusel de Servicios corregido y centrado en móviles */
+.services-container {
+    width: 100vw; /* Asegura que ocupa toda la pantalla */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.services {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 400%; /* Mantiene todas las diapositivas en línea */
+    margin-left: -5vw; /* Ajuste para centrar las diapositivas */
+}
+
+.service-slide {
+    flex: 0 0 100vw; /* Cada diapositiva ocupa el ancho completo */
+    text-align: center;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+
+
+    .service-slide img {
+        width: 80%;
+        max-width: 250px;
+    }
+
+
+
+    .service-title {
+        font-size: 18px;
+        margin-top: 8px;
+    }
+
+    .service-desc {
+        font-size: 14px;
+        max-width: 90%;
+    }
+
+    /* Botones del carrusel */
+    .slider-nav button {
+        height: 35px;
+        width: 35px;
+        font-size: 18px;
+    }
+
+    /* Sección Contacto */
+    .contact-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .map-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    /* Footer en 2 filas */
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-logo {
+        width: 100px;
+    }
+
+    .footer-text p {
+        font-size: 12px;
+    }
+}
+
+
+
     </style>
     <script>
         let currentSlide = 0;
         function showSlide(index) {
-            const totalSlides = document.querySelectorAll('.service-slide').length;
+            const slides = document.querySelectorAll('.service-slide');
+            const totalSlides = slides.length;
             if (index >= totalSlides) currentSlide = 0;
             else if (index < 0) currentSlide = totalSlides - 1;
             else currentSlide = index;
-            document.querySelector('.services').style.transform = `translateX(-${currentSlide * 25}%)`;
+
+            const slideWidth = document.querySelector('.services-container').offsetWidth;
+            document.querySelector('.services').style.transform = `translateX(-${currentSlide * slideWidth}px)`;
         }
+
+
+
+
         function nextSlide() {
             showSlide(currentSlide + 1);
         }
@@ -522,7 +808,7 @@ img {
 
                 <label for="message">Motivo de la consulta</label>
                 <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                
+    
                 <button type="submit">Enviar 📩</button>
 
 
@@ -549,7 +835,7 @@ img {
         <div class="footer-container">
             <img src="https://github.com/scarronefrancisco/proyectoweb/blob/main/scarroneclinica-removebg-preview.png?raw=true" alt="Logo" class="footer-logo">
             <div class="footer-text">
-                <p>📍 Chana 1912, Montevideo  | 📞 <a href="tel:+59812345678" class="footer-link">+598 1234 5678 </a>  | 📱 <a href="tel:+59898765432" class="footer-link">+598 9876 5432 </a>  | ✉️ <a href="mailto:info@clinicascarrone.com" class="footer-link">info@clinicascarrone.com</a></p>
+                <p>📍 Chana 1912, Monteviideo  | 📞 <a href="tel:+59812345678" class="footer-link">+598 1234 5678 </a>  | 📱 <a href="tel:+59898765432" class="footer-link">+598 9876 5432 </a>  | ✉️ <a href="mailto:info@clinicascarrone.com" class="footer-link">info@clinicascarrone.com</a></p>
                 <p>&copy; 2025 Clínica Scarrone. Todos los derechos reservados.</p>
             </div>
         </div>
